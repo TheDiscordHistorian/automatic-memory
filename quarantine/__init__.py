@@ -41,9 +41,9 @@ class Quarantine(Module):
                 were_not_able.append(member)
                 continue
             async with self.driver.member(member).all() as data:
-                data["roles"] = [x.id for x in member.roles if not x.is_default()]
+                data["roles"] = [x.id for x in member.roles if x.is_assignable()]
             await member.remove_roles(
-                *[x for x in member.roles if not x.is_default()],
+                *[x for x in member.roles if x.is_assignable()],
                 reason=f"User got quarantined by: {str(ctx.author)}",
             )
             await member.timeout(
