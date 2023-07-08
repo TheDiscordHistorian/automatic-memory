@@ -8,15 +8,13 @@ import datetime
 from redbot.core.bot import Red
 from redbot.core.commands import Cog as Module
 
-DEFAULT_MEMBER: Dict[str, List[Any]] = {"roles": []}
-
-
 class Quarantine(Module):
     """Quarantine users in your server."""
 
     def __init__(self, bot: Red) -> None:
         self.bot: Red = bot
         self.driver: Driver = Driver.get_conf(self, identifier=123855555, force_registration=True)
+        self.driver.register_member(roles=[])
 
     __author__ = "ellen.inator (`1103334703450308638`)"
 
