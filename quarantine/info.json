@@ -1,0 +1,14 @@
+{
+    "author": [
+        "ellen.inator (`1103334703450308638`)"
+    ],
+    "install_msg": "[p]load quarantine\n[p]help Quarantine",
+    "name": "Quarantine",
+    "short": "Quarantine users.",
+    "description": "Quarantine or unquarantine users.",
+    "tags": [
+        "mod",
+        "quarantine"
+    ],
+    "min_bot_version": "3.5.0"
+}
