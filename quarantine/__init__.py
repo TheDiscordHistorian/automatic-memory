@@ -76,8 +76,9 @@ class Quarantine(Module):
             if not roles:
                 were_not_able.append(member)
                 continue
+            roles = [ctx.guild.get_role(x) for x in roles]
             await member.add_roles(
-                *[discord.Object(x) for x in roles],
+                *[x for x in roles if x.is_assignable()],
                 reason=f"User got unquarantined by: {str(ctx.author)}",
             )
             await member.timeout(None, reason=f"User got unquarantined by: {str(ctx.author)}")
